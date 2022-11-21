@@ -44,19 +44,20 @@ function App() {
   ]
   /*lista de pessoas cadastradas*/
   const [integrantes, setIntegrantes] = useState([]);
-
+  
   const guardaNovoIntegrante = (dados) => {
     setIntegrantes([...integrantes, dados]);
   }
+
   /*TODO Abstrair times.map para um componente isolado*/
   return (
     <div className="App">
         <Banner />
         <Formulario
           novoIntegrante={guardaNovoIntegrante}
-          times={times.map(time => (time.nome))}
+          times={times.map(time => (time.nome))}          
         />         
-        {times.map(time => <Time        
+        {times.map(time => <Time
             key={time.nome}
             nome={time.nome}
             corPrimaria={time.corPrimaria}
