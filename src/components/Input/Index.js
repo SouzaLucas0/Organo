@@ -1,6 +1,12 @@
 import './Input.css'
 const Input = (props) => {
-    const placeholder = props.label.includes('Imagem') ? `Ex: https://github.com/"Seu Perfil".png` :`Informe seu ${props.label}`;
+    const placeholder = `Informe ${props.placeholder}`;
+    let type = "text";
+    let className = "form__input"
+    if(props.label === 'Cor') {
+        type = 'color'
+        className = "form__input color"
+    }
 
     const input = (event) => {
         props.aoAlterado(event.target.value);
@@ -8,16 +14,16 @@ const Input = (props) => {
     return (
         <div>            
             <label
-                htmlFor="iName"
+                htmlFor={props.label}
                 className="form__label">
                     {props.label}
             </label>
             <input
                 value={props.valor}
                 onChange={input}
-                type="text"
-                className="form__input"
-                id="iName"
+                type={type}
+                className={className}
+                id={props.label}
                 placeholder={placeholder}
                 required={props.required}
             />           
