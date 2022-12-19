@@ -1,11 +1,11 @@
 import './Input.css'
-
 interface InputProps {
     aoAlterado: (valor: string) => void,
-    placeholder: string
+    placeholder: string,
+    label: string
 }
 
-const Input = (props) => {
+const Input = (props: InputProps) => {
     const placeholder = `Informe ${props.placeholder}`;
     let type = "text";
     let className = "form__input"
