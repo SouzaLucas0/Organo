@@ -1,7 +1,15 @@
 import '../Input/Input.css'
 
-const Option = (props) => {
-    const input = (event) => {
+interface OptionProps {
+    aoAlterado: (valor:string) => void
+    label: string
+    valor: string
+    required: boolean
+    itens: string[]
+}
+
+const Option = (props: OptionProps) => {
+    const input = (event:React.ChangeEvent<HTMLSelectElement>) => {
         props.aoAlterado(event.target.value);
     }    
     return(

@@ -1,14 +1,14 @@
 import './Input.css'
 interface InputProps {
     aoAlterado: (valor: string) => void,
-    placeholderProps: string,
+    placeholder: string,
     label: string,
     valor: string,
     required: boolean
 }
 
-const Input = ({aoAlterado, label, placeholderProps, required, valor}: InputProps) => {
-    const placeholder = `Informe ${placeholderProps}`;
+const Input = ({aoAlterado, label, placeholder, required, valor}: InputProps) => {
+    const placeholderValue = `Informe ${placeholder}`;
     let type = "text";
     let className = "form__input"
     if(label === 'Cor') {
@@ -32,7 +32,7 @@ const Input = ({aoAlterado, label, placeholderProps, required, valor}: InputProp
                 type={type}
                 className={className}
                 id={label}
-                placeholder={placeholder}
+                placeholder={placeholderValue}
                 required={required}
             />           
         </div>

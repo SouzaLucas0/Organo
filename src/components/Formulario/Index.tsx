@@ -4,8 +4,12 @@ import BotaoSubmit from "../Botao/Index"
 import './Formulario.css'
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import { IColaborador } from "../../shared/interfaces/Colaborador";
 
-const Formulario = (props) => {
+interface FormularioProps {
+    novoIntegrante: (colaborador: IColaborador) => void
+}
+const Formulario = (props:FormularioProps) => {
     const [nome, setNome] = useState('');
     const [cargo, setCargo] = useState('');
     const [imagem, setImagem] = useState('');
