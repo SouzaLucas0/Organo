@@ -1,4 +1,10 @@
 import './Input.css'
+
+interface InputProps {
+    aoAlterado: (valor: string) => void,
+    placeholder: string
+}
+
 const Input = (props) => {
     const placeholder = `Informe ${props.placeholder}`;
     let type = "text";

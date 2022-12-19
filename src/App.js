@@ -95,7 +95,10 @@ function App() {
   /*TODO Abstrair times.map para um componente isolado*/
   return (
     <div className="App">
-        <Banner />
+        <Banner 
+          imgPath = "./img/banner.png"
+          alt = "Banner principal do Organo"
+        />
         <Formulario
           novoIntegrante={guardaNovoIntegrante}
           times={times.map(time => (time.nome))}
