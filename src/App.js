@@ -44,25 +44,7 @@ function App() {
     }        
   ])
   /*lista de pessoas cadastradas*/
-  const [integrantes, setIntegrantes] = useState([
-    {
-      id: uuidv4(),
-      like: false,
-      nome: 'Lucas Souza',
-      cargo: 'dev',
-      imagem: 'https://github.com/SouzaLucas0.png',
-      time: times[1].nome
-    },
-
-    {
-      id: uuidv4(),
-      like: false,
-      nome: 'Lucas Souza',
-      cargo: 'dev',
-      imagem: 'https://github.com/SouzaLucas0.png',
-      time: times[2].nome
-    },
-  ]);
+  const [integrantes, setIntegrantes] = useState([]);
   const guardaNovoIntegrante = (dados) => {
     setIntegrantes([...integrantes, dados]);
   }

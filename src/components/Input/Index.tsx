@@ -1,37 +1,39 @@
 import './Input.css'
 interface InputProps {
     aoAlterado: (valor: string) => void,
-    placeholder: string,
-    label: string
+    placeholderProps: string,
+    label: string,
+    valor: string,
+    required: boolean
 }
 
-const Input = (props: InputProps) => {
-    const placeholder = `Informe ${props.placeholder}`;
+const Input = ({aoAlterado, label, placeholderProps, required, valor}: InputProps) => {
+    const placeholder = `Informe ${placeholderProps}`;
     let type = "text";
     let className = "form__input"
-    if(props.label === 'Cor') {
+    if(label === 'Cor') {
         type = 'color'
         className = "form__input color"
     }
 
-    const input = (event) => {
-        props.aoAlterado(event.target.value);
+    const input = (event:React.ChangeEvent<HTMLInputElement>) => {
+        aoAlterado(event.target.value);
     }
     return (
         <div>            
             <label
-                htmlFor={props.label}
+                htmlFor={label}
                 className="form__label">
-                    {props.label}
+                    {label}
             </label>
             <input
-                value={props.valor}
+                value={valor}
                 onChange={input}
                 type={type}
                 className={className}
-                id={props.label}
+                id={label}
                 placeholder={placeholder}
-                required={props.required}
+                required={required}
             />           
         </div>
     )
