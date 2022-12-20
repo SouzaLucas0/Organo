@@ -9,7 +9,7 @@ import { IColaborador } from "../../shared/interfaces/Colaborador";
 interface FormularioProps {
     novoIntegrante: (colaborador: IColaborador) => void
     novoTime: (valor:{nome: string, cor:string}) => void
-    times: []
+    times: string[]
 }
 const Formulario = (props:FormularioProps) => {
     const [nome, setNome] = useState('');

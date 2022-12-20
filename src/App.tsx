@@ -3,6 +3,7 @@ import Banner from './components/Banner/Index';
 import Formulario from './components/Formulario/Index';
 import Time from './components/Time';
 import { v4 as uuidv4 } from 'uuid';
+import { IColaborador } from './shared/interfaces/Colaborador';
 
 function App() {
   /*Lista de times para o imput select*/
@@ -44,16 +45,22 @@ function App() {
     }        
   ])
   /*lista de pessoas cadastradas*/
-  const [integrantes, setIntegrantes] = useState([]);
-  const guardaNovoIntegrante = (dados) => {
+  const [integrantes, setIntegrantes] = useState<IColaborador[]>([]);
+  const guardaNovoIntegrante = (dados:IColaborador) => {
     setIntegrantes([...integrantes, dados]);
   }
 
-  function deletarColaborador(id) {
+  function deletarColaborador(id:string) {
     setIntegrantes(integrantes.filter(integrante => integrante.id !== id))
   }
 
-  function mudaCorTime(cor, id) {
+  interface ITime {
+    id: string
+    nome: string
+    cor: string
+  }
+
+  function mudaCorTime(cor:string, id:string) :ITime  {
     setTime(times.map(time => {
       if(time.id === id) {
         time.cor = cor;
@@ -62,11 +69,11 @@ function App() {
     }))
   }
 
-  function cadastrarTime(novoTime) {
+  function cadastrarTime(novoTime:any) {
     setTime([...times, {...novoTime, id: uuidv4()}])
   }
 
-  function favoritarIntegrante (id) {
+  function favoritarIntegrante (id:string) {
     setIntegrantes(integrantes.map(integrante => {
       if(integrante.id === id) {
         integrante.like = !integrante.like;        
