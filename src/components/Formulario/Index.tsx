@@ -8,6 +8,8 @@ import { IColaborador } from "../../shared/interfaces/Colaborador";
 
 interface FormularioProps {
     novoIntegrante: (colaborador: IColaborador) => void
+    novoTime: (valor:{nome: string, cor:string}) => void
+    times: []
 }
 const Formulario = (props:FormularioProps) => {
     const [nome, setNome] = useState('');
@@ -17,9 +19,9 @@ const Formulario = (props:FormularioProps) => {
     const [nomeTime, setNomeTime] = useState('');
     const [corTime, setCorTime] = useState('');
 
-    const id = uuidv4();
+    let id = uuidv4();
 
-    const getDados = (event) => {
+    const getDados = (event:React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         props.novoIntegrante({
             id,

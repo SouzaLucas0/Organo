@@ -4,7 +4,7 @@ interface InputProps {
     placeholder: string,
     label: string,
     valor: string,
-    required: boolean
+    required?: boolean
 }
 
 const Input = ({aoAlterado, label, placeholder, required, valor}: InputProps) => {

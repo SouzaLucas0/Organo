@@ -1,12 +1,10 @@
-export interface IColaborador extends IColaboradorFunction {
+export interface IColaborador {
     nome: string
     cargo: string
     imagem: string
-    id: number
+    id: string
     like: boolean
-}
-
-interface IColaboradorFunction {
-    aoLike: (id:number) => []
-    aoDeletar: (id:number) => void
+    time?: string
+    aoLike?: (id:string) => []
+    aoDeletar?: (id:string) => void
 }

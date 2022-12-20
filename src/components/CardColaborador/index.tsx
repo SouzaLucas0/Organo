@@ -8,10 +8,10 @@ interface CardColaboradorProps {
     nome: string
     imagem: string
     cargo: string
-    id: number
+    id: string
     like: boolean
-    aoLike: (id:number) => []
-    aoDeletar: (id:number) => void
+    aoLike: (id:string) => []
+    aoDeletar: (id:string) => void
 }
 
 const CardColaborador = ({nome, imagem, cargo, corPrimaria, like, aoLike, aoDeletar, id}: CardColaboradorProps) => {

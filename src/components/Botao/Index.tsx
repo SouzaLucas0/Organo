@@ -4,13 +4,13 @@ import React from 'react';
 
 
 interface BotaoProps {
-    children: ReactElement
+    children: ReactElement | string
 }
 
-const BotaoSubmit = (props: BotaoProps) => {
+const BotaoSubmit = (children: BotaoProps) => {
     return(
         <button className='botaoSubmit'>
-            {props.children}
+            {children}
         </button>
     )
 }

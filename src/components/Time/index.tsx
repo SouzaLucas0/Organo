@@ -5,11 +5,11 @@ import { IColaborador } from '../../shared/interfaces/Colaborador';
 
 interface TimeProps {
     colaboradores: IColaborador[],
-    aoDeletar: (id:number) => void
-    aoLike: (id:number) => []   
-    mudarCor: (cor: string, id: number) => []
+    aoDeletar: (id:string) => void
+    aoLike: (id:string) => []   
+    mudarCor: (cor: string, id: string) => []
     cor: string
-    timeID: number
+    timeID: string
     nome: string
 }
 

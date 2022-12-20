@@ -56,7 +56,7 @@ function App() {
   function mudaCorTime(cor, id) {
     setTime(times.map(time => {
       if(time.id === id) {
-        time.cor = cor;        
+        time.cor = cor;
       }
       return time;
     }))
