@@ -5,6 +5,7 @@ export interface IColaborador {
     id: string
     like: boolean
     time?: string
+    data: string
     aoLike?: (id:string) => []
     aoDeletar?: (id:string) => void
 }

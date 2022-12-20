@@ -18,6 +18,7 @@ const Formulario = (props:FormularioProps) => {
     const [time, setTime] = useState('');
     const [nomeTime, setNomeTime] = useState('');
     const [corTime, setCorTime] = useState('');
+    const [data, setData] = useState('');
 
     let id = uuidv4();
 
@@ -29,7 +30,8 @@ const Formulario = (props:FormularioProps) => {
             nome,
             cargo,
             imagem,
-            time
+            time,
+            data
         });
         setNome('');
         setCargo('');
@@ -37,6 +39,7 @@ const Formulario = (props:FormularioProps) => {
         setTime('')
         setNomeTime('')
         setCorTime('');
+        setData('');
 
         setTimeout(() => {
             window.location.href = `#${id}`;
@@ -67,6 +70,15 @@ const Formulario = (props:FormularioProps) => {
                     placeholder='sua imagem Ex: https://github.com/"Seu Perfil".png'
                     valor={imagem}
                     aoAlterado={valor => setImagem(valor)}                
+                />
+
+                <Input 
+                    label="Data de entrada no time"
+                    placeholder=""
+                    valor={data}
+                    aoAlterado={valor => setData(valor)}
+                    type="date"
+                    required = {true}
                 />
                 <Option 
                     label="Time"

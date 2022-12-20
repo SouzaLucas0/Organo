@@ -4,10 +4,11 @@ import Formulario from './components/Formulario/Index';
 import Time from './components/Time';
 import { v4 as uuidv4 } from 'uuid';
 import { IColaborador } from './shared/interfaces/Colaborador';
+import { ITime } from './shared/interfaces/ITimes';
 
 function App() {
   /*Lista de times para o imput select*/
-  const [times, setTime] = useState([
+  const [times, setTime] = useState<ITime[]>([
     {
       id: uuidv4(),
       nome: 'Programação',
@@ -54,13 +55,7 @@ function App() {
     setIntegrantes(integrantes.filter(integrante => integrante.id !== id))
   }
 
-  interface ITime {
-    id: string
-    nome: string
-    cor: string
-  }
-
-  function mudaCorTime(cor:string, id:string) :ITime  {
+  function mudaCorTime(cor:string, id:string) {
     setTime(times.map(time => {
       if(time.id === id) {
         time.cor = cor;
@@ -102,6 +97,7 @@ function App() {
             aoDeletar={deletarColaborador}
             mudarCor={mudaCorTime}
             aoLike={favoritarIntegrante}
+            
         />)}
     </div>
   );

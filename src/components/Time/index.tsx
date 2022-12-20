@@ -2,12 +2,13 @@ import CardColaborador from '../CardColaborador';
 import './Time.css'
 import hexToRgba from 'hex-to-rgba';
 import { IColaborador } from '../../shared/interfaces/Colaborador';
+import { ITime } from '../../shared/interfaces/ITimes';
 
 interface TimeProps {
     colaboradores: IColaborador[],
     aoDeletar: (id:string) => void
-    aoLike: (id:string) => []   
-    mudarCor: (cor: string, id: string) => []
+    aoLike: (id:string) => void
+    mudarCor: (cor: string, id: string) => void
     cor: string
     timeID: string
     nome: string
@@ -31,12 +32,13 @@ const Time = ({aoDeletar, aoLike, colaboradores, cor, mudarCor, nome, timeID}: T
                         {colaboradores.map(colaborador => {
                             return(
                                 <CardColaborador
+                                    key={colaborador.id}
                                     nome={colaborador.nome}
                                     imagem={colaborador.imagem}
                                     cargo={colaborador.cargo}
-                                    key={colaborador.id}
                                     like={colaborador.like}
                                     id={colaborador.id}
+                                    data={colaborador.data}
                                     corPrimaria={cor}
                                     aoDeletar={aoDeletar}
                                     aoLike={aoLike}

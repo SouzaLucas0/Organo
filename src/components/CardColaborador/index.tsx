@@ -8,13 +8,14 @@ interface CardColaboradorProps {
     nome: string
     imagem: string
     cargo: string
+    data: string
     id: string
     like: boolean
-    aoLike: (id:string) => []
+    aoLike: (id:string) => void
     aoDeletar: (id:string) => void
 }
 
-const CardColaborador = ({nome, imagem, cargo, corPrimaria, like, aoLike, aoDeletar, id}: CardColaboradorProps) => {
+const CardColaborador = ({nome, imagem, cargo, corPrimaria, data, like, aoLike, aoDeletar, id}: CardColaboradorProps) => {
     function favoritar() {
         aoLike(id)
     }
@@ -30,6 +31,9 @@ const CardColaborador = ({nome, imagem, cargo, corPrimaria, like, aoLike, aoDele
                 </h4>
                 <h5>
                     {cargo}
+                </h5>
+                <h5>
+                    {new Date(data).toLocaleDateString()}
                 </h5>
                 <div className='like'>
                     {like 

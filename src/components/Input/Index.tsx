@@ -5,11 +5,11 @@ interface InputProps {
     label: string,
     valor: string,
     required?: boolean
+    type?: 'text' | 'password' | 'date' | 'email' | 'number' | 'color'
 }
 
-const Input = ({aoAlterado, label, placeholder, required, valor}: InputProps) => {
+const Input = ({aoAlterado, label, placeholder, required, valor, type="text"}: InputProps) => {
     const placeholderValue = `Informe ${placeholder}`;
-    let type = "text";
     let className = "form__input"
     if(label === 'Cor') {
         type = 'color'
